@@ -25,11 +25,19 @@ const Hero = (props: Props) => {
               {post.title}
             </h2>
             <div className=" flex gap-4 italic justify-center items-center">
-              <div className=" h-10 w-10 rounded-full bg-black"></div>
+              <div className=" relative overflow-auto h-10 w-10 rounded-full bg-black">
+                <Image
+                  fill
+                  src={post.authorImage}
+                  alt={`Tag image title ${post.title}`}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
               <span>{post.authorName}</span>
               <span>{post.publishDate}</span>
             </div>
-            <Link href={`/blog/${post.id}`}>
+            <Link href={{ pathname: `/blog/${post.id}`, query: { ...post } }}>
               <div className=" relative h-[600px] overflow-auto shadow-xl">
                 <Image
                   fill
@@ -47,7 +55,7 @@ const Hero = (props: Props) => {
         <div className=" grid grid-cols-1 xl:grid-cols-3  gap-8 ">
           {bottomFeatured.map((post, id) => (
             <div key={id} className=" flex flex-col gap-4 text-center relative">
-              <Link href={`/blog/${post.id}`}>
+              <Link href={{ pathname: `/blog/${post.id}`, query: { ...post } }}>
                 <div className=" relative h-72 overflow-auto shadow-xl">
                   <Image
                     fill
