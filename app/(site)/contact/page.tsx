@@ -6,7 +6,7 @@ import Map from "@/components/ui/Map";
 const page = () => {
   return (
     <div>
-      <div className="relative h-[500px] w-full">
+      <div className="relative h-[200px] w-full">
         <Image
           src="/assets/contact.jpg"
           fill
@@ -24,7 +24,7 @@ const page = () => {
           Let's Discuss
         </h1>
 
-        <form className="flex flex-col w-full gap-5">
+        <form className="flex flex-col w-[95%] mx-auto max-w-[1440px] gap-5">
           <div className="flex gap-5 max-sm:flex-col">
             <input
               type="text"
@@ -52,7 +52,7 @@ const page = () => {
           <textarea
             name="message"
             placeholder="Message"
-            rows={8}
+            rows={6}
             className="px-1 py-3 border-gray-300 w-full rounded-md text-gray-900 shadow-sm ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary outline-none"
           />
           <div className="flex justify-center">
