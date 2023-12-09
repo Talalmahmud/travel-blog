@@ -20,16 +20,16 @@ const Footer = (props: Props) => {
           </Link>
         </div>
         <div className=" flex items-center gap-5 text-white">
-          <div className=" text-4xl">
+          <div className=" text-4xl cursor-pointer hover:text-light/40">
             <FaFacebookSquare />
           </div>
-          <div className=" text-4xl">
+          <div className=" text-4xl cursor-pointer hover:text-light/40">
             <FaSquareInstagram />
           </div>
-          <div className=" text-4xl">
+          <div className=" text-4xl cursor-pointer hover:text-light/40">
             <FaSquareXTwitter />
           </div>
-          <div className=" text-4xl">
+          <div className=" text-4xl cursor-pointer hover:text-light/40">
             <FaSquareSnapchat />
           </div>
         </div>
