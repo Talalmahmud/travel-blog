@@ -9,7 +9,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <div className=" w-full bg-slate-900">
+    <div className=" w-full bg-slate-900 mt-20">
       <div className=" w-[95%] mx-auto max-w-[1440px] py-8 flex items-center justify-between ">
         <div className=" flex-1">
           <Link href={"/"}>
