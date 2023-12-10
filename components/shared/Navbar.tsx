@@ -21,7 +21,7 @@ const Navbar = (props: Props) => {
   }, [showMobileMenu]);
 
   return (
-    <nav className=" w-full p-4 sticky z-40 top-0 left-0 bg-light border-b border-gray-100 mb-4">
+    <nav className=" w-full p-4 sticky z-40 top-0 left-0 bg-light border-b border-gray-200 mb-4">
       <div className=" w-[95%] mx-auto max-w-[1440px] flex items-center justify-between pb-5  ">
         <div className=" flex-1">
           <Link href={"/"}>
