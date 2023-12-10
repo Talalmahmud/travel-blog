@@ -34,8 +34,8 @@ const page = ({ searchParams }: { searchParams: Props }) => {
           <span className=" text-red-600">Title:</span> {title}
         </h2>
 
-        <div className=" hidden md:flex  flex-col gap-2 italic justify-center ">
-          <div className=" flex items-center">
+        <div className=" hidden md:flex  flex-col gap-y-[2px] italic justify-center ">
+          <div className=" flex items-center gap-x-[4px]">
             <div className=" relative overflow-auto h-10 w-10 rounded-full bg-black">
               <Image
                 fill
@@ -62,7 +62,7 @@ const page = ({ searchParams }: { searchParams: Props }) => {
           priority
         />
       </div>
-      <div className=" flex gap-4 italic py-2 items-center">
+      <div className=" flex md:hidden gap-4 italic py-2 items-center">
         <div className=" relative overflow-auto h-10 w-10 rounded-full bg-black">
           <Image
             fill
@@ -76,7 +76,7 @@ const page = ({ searchParams }: { searchParams: Props }) => {
         <span>{publishDate}</span>
       </div>
 
-      <p className=" italic text-sm">
+      <p className=" italic text-sm mt-4">
         <span className=" not-italic bold text-lg">Description: </span>
         {paragraph}
       </p>
