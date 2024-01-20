@@ -7,7 +7,7 @@ type Props = {};
 const MyBlog = (props: Props) => {
   const { data: session } = useSession();
 
-  return <div>{session?.user?.name}</div>;
+  return <div></div>;
 };
 
 export default MyBlog;

@@ -3,7 +3,7 @@ import React from "react";
 type Props = {
   text: string;
   onClick?: () => void;
-  aria: string;
+  aria?: string;
   bgColor?: string;
 };
 

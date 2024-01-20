@@ -10,11 +10,13 @@ import { FiMenu } from "react-icons/fi";
 import useMenuActive from "@/hooks/useMenuActive";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const { data: session } = useSession();
+  const userName = session?.user?.name;
   const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -76,7 +78,7 @@ const Navbar = (props: Props) => {
 
         <div className=" flex flex-1 gap-5  justify-end max-md:hidden">
           {session ? (
-            <div className="flex gap-5">
+            <div className="flex gap-5 items-center">
               <Button text="Logout" aria="Login button" onClick={logout} />
               <Button
                 text="Profile"
@@ -84,6 +86,11 @@ const Navbar = (props: Props) => {
                 bgColor="bg-green-600"
                 onClick={profileHandle}
               />
+              <div>
+                <p className=" h-[30px] w-[30px] bg-orange-500 flex items-center justify-center text-white rounded-full ">
+                  {userName && userName[0]}
+                </p>
+              </div>
             </div>
           ) : (
             <div className="flex gap-5">

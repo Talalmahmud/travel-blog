@@ -11,7 +11,7 @@ const page = (props: Props) => {
     redirect("/");
   }
 
-  return <div>Welcome to your dashboard</div>;
+  return <div >Welcome to your dashboard</div>;
 };
 
 export default page;
