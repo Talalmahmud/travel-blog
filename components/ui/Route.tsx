@@ -7,17 +7,17 @@ type Props = {
   isActive?: boolean;
   label: String;
   onClick?: () => void;
+  bgColor?: string;
 };
 
-const Route = ({ route, isActive, label, onClick }: Props) => {
+const Route = ({ route, isActive, label, onClick, bgColor }: Props) => {
   return (
     <Link
       href={route}
       onClick={onClick}
-      className={clsx(
-        isActive && "text-primary rounded-md bg-transparent",
-        !isActive && ""
-      )}
+      className={` ${
+        bgColor ? `bg-${bgColor}` : "text-primary"
+      }  rounded-md bg-transparent`}
     >
       {label}
     </Link>

@@ -1,3 +1,4 @@
+"use client";
 import BlogPost from "@/components/shared/BlogPost";
 import Hero from "@/components/shared/Hero";
 import LatestPost from "@/components/shared/LatestPost";

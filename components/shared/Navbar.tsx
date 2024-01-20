@@ -8,11 +8,25 @@ import Button from "../ui/Button";
 import MobileMenu from "./MobileMenu";
 import { FiMenu } from "react-icons/fi";
 import useMenuActive from "@/hooks/useMenuActive";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const { data: session } = useSession();
+  const router = useRouter();
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+
+  const logout = () => {
+    signOut({ callbackUrl: "/login" });
+  };
+  const login = async () => {
+    const res = await signIn();
+  };
+  const profileHandle = () => {
+    router.push("/dashboard/profile");
+  };
 
   useEffect(() => {
     showMobileMenu
@@ -21,7 +35,7 @@ const Navbar = (props: Props) => {
   }, [showMobileMenu]);
 
   return (
-    <nav className=" w-full p-4 sticky z-40 top-0 left-0 bg-light border-b border-gray-200 mb-4">
+    <nav className=" w-full py-4 sticky z-40 top-0 left-0 bg-light border-b border-gray-200 mb-4">
       <div className=" w-[95%] mx-auto max-w-[1440px] flex items-center justify-between pb-5  ">
         <div className=" flex-1">
           <Link href={"/"}>
@@ -39,13 +53,21 @@ const Navbar = (props: Props) => {
               return (
                 <li
                   key={index}
-                  className=" hover:text-primary active:text-primary visited:text-primary"
+                  className=" hover:text-primary  active:text-primary visited:text-primary"
                 >
-                  <Route
-                    route={link.route}
-                    label={link.label}
-                    isActive={isActive}
-                  />
+                  {link.label === "Profile" ? (
+                    <Route
+                      route={link.route}
+                      label={link.label}
+                      isActive={isActive}
+                    />
+                  ) : (
+                    <Route
+                      route={link.route}
+                      label={link.label}
+                      isActive={isActive}
+                    />
+                  )}
                 </li>
               );
             })}
@@ -53,8 +75,22 @@ const Navbar = (props: Props) => {
         </div>
 
         <div className=" flex flex-1 gap-5  justify-end max-md:hidden">
-          <Button text="Login" aria="Login button" />
-          <Button text="Sign Up" aria="Sign up button" />
+          {session ? (
+            <div className="flex gap-5">
+              <Button text="Logout" aria="Login button" onClick={logout} />
+              <Button
+                text="Profile"
+                aria="Login button"
+                bgColor="bg-green-600"
+                onClick={profileHandle}
+              />
+            </div>
+          ) : (
+            <div className="flex gap-5">
+              <Button text="Login" aria="Login button" onClick={login} />
+              <Button text="Sign Up" aria="Sign up button" />
+            </div>
+          )}
         </div>
 
         <div
