@@ -1,15 +1,21 @@
-"use client";
 import BlogPost from "@/components/shared/BlogPost";
 import Hero from "@/components/shared/Hero";
-import LatestPost from "@/components/shared/LatestPost";
-import TopPost from "@/components/shared/TopPost";
+import prisma from "@/lib/prisma";
 import React from "react";
 
 type Props = {};
 
-const Home = (props: Props) => {
+async function getBlogs() {
+  const blogs = await prisma.blog.findMany();
+  return blogs;
+}
+
+const Home = async (props: Props) => {
+  const getBlogPost = await getBlogs();
+  console.log(getBlogPost);
   return (
     <>
+      <p>{getBlogPost[0].title}</p>
       <Hero />
 
       <BlogPost />
